@@ -30,42 +30,70 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.speaker', {
+    url: "/speaker",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
+        templateUrl: "templates/speaker.html",
+        controller: 'PlaylistsCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.speakerdetail', {
+    url: "/speaker/:speakerId",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
+        templateUrl: "templates/speakerdetail.html",
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  })
+
+  .state('app.organizer', {
+    url: "/organizer",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/organizer.html"
+      }
+    }
+  })
+    
+  .state('app.wnh', {
+    url: "/wnh",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/wnh.html"
+      }
+    }
+  })
+    .state('app.about', {
+    url: "/about",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/about.html",
+      }
+    }
+  })
+
+    .state('app.venue', {
+    url: "/venue",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/venue.html",
+      }
+    }
+  })
+
+    .state('app.schedule', {
+      url: "/schedule",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/schedule.html"
+        }
+      }
+    });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/schedule');
 });
